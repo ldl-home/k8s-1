@@ -166,6 +166,10 @@ ansible-playbook fdisk.yml -i inventory -l master,node -e "disk=sdb dir=/var/lib
 ```
 ansible-playbook k8s.yml -i inventory
 ```
+- 指定ansible-playbook的python运行环境（使用的是python3.7.9的版本）
+```
+ansible-playbook k8s.yml -e 'ansible_python_interpreter=/usr/bin/python' -i inventory
+```
 
 - 成功执行结束后，既kubernetes集群部署成功。
 - 后续部署其他基础插件可以参考[部署集群插件](https://www.k8sre.com/#/kubernetes/addons)。
