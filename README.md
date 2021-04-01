@@ -55,9 +55,9 @@ tar zxvf kubernetes-server-linux-amd64.tar.gz
 # 拷贝kubernetes二进制文件到nginx目录
 cp kubernetes/server/bin/{kube-apiserver,kube-controller-manager,kube-scheduler,kubectl,kubelet,kube-proxy} /usr/share/nginx/html/v1.20.4/
 # 拷贝cri-tools文件到nginx目录
-cp crictl-v1.20.0-linux-amd64.tar.gz /usr/share/nginx/html/cri-tools
+cp crictl-v1.20.0-linux-amd64.tar.gz /usr/share/nginx/html/v1.20.4/cri-tools
 # 拷贝cni-plugins文件到nginx目录
-cp cni-plugins-linux-amd64-v0.8.7.tgz /usr/share/nginx/html/cni-plugins
+cp cni-plugins-linux-amd64-v0.8.7.tgz /usr/share/nginx/html/v1.20.4/cni-plugins
 ```
 启动服务
 ```
@@ -162,6 +162,7 @@ ansible-playbook fdisk.yml -i inventory -l master,node -e "disk=sdb dir=/var/lib
 
 
 ### 3.3、部署集群
+修改这个文件  group_vars/all.yml
 
 ```
 ansible-playbook k8s.yml -i inventory
